@@ -13,3 +13,5 @@ A commit is a command that records the changes to the repository. A good commit 
 
 * What is a merge conflict?
 A merge conflict is when two branches both modify the same parts of a file so when they are merged, git does not know which of the changes to keep.
+
+Adding a change to my feature branch, yay!
