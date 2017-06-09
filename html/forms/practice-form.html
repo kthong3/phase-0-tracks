@@ -4,6 +4,33 @@
 	<title>Practice Form</title>
 </head>
 <body>
+<form action="success.html" method="post">
+  <div>
+      <label>Name:</label>
+      <input type="text" name="fullname">
+    </div>
+  <div>
+    <label>Email:</label>
+    <input type="email" name="email">
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password">
+  </div>
+  <div>
+      <label>Fruits:</label>
+      <select name="fruits">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="grapes">Grapes</option>
+      </select>
+    </div>
+    <div>
+      <input type="checkbox" name="agreement" value="agree">
+  		I'm not allergic to any fruits.
+    </div>
+  <button type="submit">Submit</button>
 
+</form>
 </body>
 </html>
