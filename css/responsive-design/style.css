@@ -62,8 +62,8 @@ main {
   float: none;
   font-size: .5em;
   }
-
 }
+
 @media screen and (max-width: 400px) {
 
   section#external-links {
@@ -75,5 +75,4 @@ main {
   width: 70%;
   float: none;
   }
-
 }
