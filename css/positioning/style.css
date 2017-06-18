@@ -1,13 +1,29 @@
 img#glasses {
-
+	position: absolute;
+ 	display: block;
+    top: 430px; 
+    left: 895px; 
+    margin: auto;
+    z-index: -1;
 }
 
 img#hat {
-
+	position: absolute;
+ 	display: block;
+    top: 250px; 
+    left: 0; 
+    right:0;
+    margin: auto;
+    z-index: -1;
 }
 
 img#octopus {
 	position: absolute;
-	text-align: center;
-	margin: 350px;
+ 	display: block;
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right:0;
+    margin: auto;
+    z-index: -2;
 }
