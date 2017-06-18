@@ -1,3 +1,13 @@
-body {
-	background: orange;
+img#glasses {
+
+}
+
+img#hat {
+
+}
+
+img#octopus {
+	position: absolute;
+	text-align: center;
+	margin: 350px;
 }
