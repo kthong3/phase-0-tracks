@@ -51,3 +51,9 @@ estimated_age = nil
 
 puts "What is the estimated age of this hamster (number of years)?"
 estimated_age = gets.chomp
+
+puts "This hamster's name is #{name}."
+puts "The volume of this hamster is #{volume}."
+puts "This hamster's fur color is #{fur_color}."
+puts "This hamster is a good candidate for adoption. (#{adoption})"
+puts "The estimated age of this hamster is #{estimated_age}."
