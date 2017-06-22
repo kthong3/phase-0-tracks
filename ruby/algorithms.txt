@@ -3,8 +3,13 @@ Teach personal robot how to use elevator
 	- if you will need to go up, the robot must press the up button
 	- if you will need to go down, the robot must press the down button
 - once the elevator door opens, have robot step inside the elevator
-- tell the robot to press the floor number button based on which floor 		you will need to get to
-	- if you will need to go to floor 2, have robot press "2" button and 		etc.
+- tell the robot the floor number you will need to get to
+	- tell the robot to press the floor number button based on that number
+		- example, if you will need to go to floor 2, have robot press "2" button and etc.
+- after pressing the button, tell robot to wait until you reach the floor number
+	- tell the robot the number will appear at the top
+	- tell robot to ignore all other floor numbers
+- tell robot to exit when desired floor number is reached
 
 Algorithm of making scrambled eggs
 - go to refrigerator in the kitchen
@@ -29,7 +34,7 @@ Algorithm of making scrambled eggs
 - go to counter where the fork, egg carton, and bowl are located
 	- open egg carton
 	- take out number of desired eggs from egg carton
-	-	crack eggs into the bowl
+	- crack eggs into the bowl
 		- for each egg, discard the eggshell
 	- pick up the fork from the counter
 		- using the fork, mix the eggs in the bowl
