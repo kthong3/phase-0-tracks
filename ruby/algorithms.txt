@@ -34,7 +34,7 @@ Algorithm of making scrambled eggs
 - go to counter where the fork, egg carton, and bowl are located
 	- open egg carton
 	- take out number of desired eggs from egg carton
-	-	crack eggs into the bowl
+	- crack eggs into the bowl
 		- for each egg, discard the eggshell
 	- pick up the fork from the counter
 		- using the fork, mix the eggs in the bowl
