@@ -1,0 +1,56 @@
+Teach personal robot how to use elevator
+- tell the robot to press the up or down button for elevator
+	- if you will need to go up, the robot must press the up button
+	- if you will need to go down, the robot must press the down button
+- once the elevator door opens, have robot step inside the elevator
+- tell the robot to press the floor number button based on which floor 		you will need to get to
+	- if you will need to go to floor 2, have robot press "2" button and 		etc.
+
+Algorithm of making scrambled eggs
+- go to refrigerator in the kitchen
+	- open the refrigerator door
+	- find egg carton
+		- if there are no eggs, you cannot make scrambled eggs
+	- take out egg carton from refrigerator
+	- put egg carton on counter
+- go to kitchen cabinet and find frying pan
+	- take out frying pan from cabinet
+	- place frying pan on counter top near the stove
+- go to cabinet and choose your favorite type of oil to use for eggs
+	- if butter is preferred, go to refrigerator and get butter
+	- place oil type on counter top near stove
+- go to kitchen cabinet and find bowl
+	- bowl must be big enough to fill in number of eggs you want to eat
+	- take out bowl from cabinet
+	- place bowl on counter top near egg carton
+- go to utensil drawer and find a fork
+	- take out a fork from drawer
+	- place fork on counter near bowl and egg carton
+- go to counter where the fork, egg carton, and bowl are located
+	- open egg carton
+	- take out number of desired eggs from egg carton
+	-	crack eggs into the bowl
+		- for each egg, discard the eggshell
+	- pick up the fork from the counter
+		- using the fork, mix the eggs in the bowl
+- go to utensil drawer and and find spatula
+	- take out spatula from drawer
+	- put spatula on counter space near stovetop
+- go to stove
+	- place frying pan on stovetop
+	- pour desired amount of oil onto frying pan
+	- turn on the heating by turning the dial to medium heat until it is hot
+	- pour egg mix from bowl onto the frying pan
+	- place bowl on the counter top
+	- pick up spatula from counter top
+	- use spatula to pull, lift, and fold eggs mix on frying pan until eggs have thickened
+		- if eggs have thickened if there is no visible liquid egg
+		- if eggs have not thickened, you may turn up the heat using dial on stovetop
+		- otherwise, do not stir constantly
+- using the dial on the stove top, turn off the heat on the stove
+	- go to cabinet and find a plate
+	- take out a plate
+	- put plate on counter top
+- go to stove 
+	- carefully grab frying pan by handle and go to plate
+	- pour cooked eggs on top of plate
