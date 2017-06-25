@@ -47,16 +47,19 @@ end
 def decrypt(str)
  	count = 0 #create a variables that will start the count at 0 since the first letter is at index 0 
  	a_count = 0 
- 	
-	alphabet = "abcdefghijklmnopqrstuvwxyz"  # create a string to have a reference to look for the indicies of each letter. 
+
+ 	# create a string to have a reference to look for the indicies of each letter.
+	alphabet = "abcdefghijklmnopqrstuvwxyz"   
   
-	until count == str.length # create a loop that will perform the decrypting for each letter in the string 
-  
-		a_count = alphabet.index(str[count]) # create a variable that will store the string and convert its letters into indicies
+  # create a loop that will perform the decrypting for each letter in the string 
+	until count == str.length 
+  	# create a variable that will store the string and convert its letters into indicies
+		a_count = alphabet.index(str[count]) 
+   
+    # create a variable that will allow the alphabet index to have a_count move backwards
+		str[count] = alphabet[a_count-=1] 
     
-		str[count] = alphabet[a_count-=1] # create a variable that will allow the alphabet index to have a_count move backwards
-    
-		count +=1 # create a variable that will avoid having an infinite loop
+		count +=1 # create a variable to avoid having an infinite loop
 	end
 	
   puts str # displays the decrypted string
