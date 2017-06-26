@@ -42,7 +42,7 @@ until count == numberofemployees
       end
   end
   
-    valid_allergy = false
+  valid_allergy = false
     until valid_allergy
     puts "Do you have any allergies?"
       allergy = gets.chomp
@@ -67,7 +67,7 @@ until count == numberofemployees
   # find out if employee is vampire
   employeeisvampire = true
   while employeeisvampire
-    if (age.to_i <= 120 && year.to_i >= 1900 && garlic_bread.downcase == "yes" && health_ins.downcase == "yes" && allergy_input.downcase != "sunshine" && allergy_next.downcase != "sunshine") && (name !=  "Drake Cula" && name != "Tu Fang")
+    if (age.to_i <= 120 && year.to_i >= 1900 && garlic_bread.downcase == "yes" && health_ins.downcase == "yes" && allergy_input.downcase != "sunshine") && (name !=  "Drake Cula" && name != "Tu Fang")
       puts "Probably not a vampire."
       employeeisvampire = false
     elsif (age.to_i >= 150 && year.to_i <= 1900 && garlic_bread.downcase == "no") || health_ins.downcase == "no"
@@ -104,9 +104,11 @@ until count == numberofemployees
     puts "The employee did not sign up for health insurance."
   end
   
-  puts "The employee has the following allergies: #{allergy_input}"
+  puts "The employee has the following allergies: #{allergy_input} #{allergy_next}"
   
   count += 1
   
-  puts "Thank you for completing this survey."
 end
+
+puts "Actually, never mind! What do these questions have to do with anything?"
+puts "Let's all be friends."
