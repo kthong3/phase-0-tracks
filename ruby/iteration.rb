@@ -50,3 +50,56 @@ end
 
 puts "hash after .map"
 p modified_movies
+
+numbers = [1, 2, 3, 4]
+numbers.delete_if { |number| number <= 2 }
+puts numbers
+
+numbers = [1, 2, 3, 4]
+numbers.keep_if { |number| number >= 2 }
+puts numbers
+
+numbers = [1, 2, 3, 4]
+puts numbers.select { |number| number.odd? }
+
+numbers = [1, 2, 3, 4]
+puts numbers.take_while { |number| number < 3 }
+
+
+numbers = {
+	"one" => "1",
+	"two" => "2",
+	"three" => "3",
+	"four" => "4"
+}
+
+numbers.delete_if { |word, digit| word == "two" }
+puts numbers
+
+numbers = {
+	"one" => "1",
+	"two" => "2",
+	"three" => "3",
+	"four" => "4"
+}
+numbers.keep_if { |word, digit| word == "two" }
+puts numbers
+
+numbers = {
+	"one" => "1",
+	"two" => "2",
+	"three" => "3",
+	"four" => "4"
+}
+puts numbers.select { |word, digit| word == "two" }
+
+numbers = {
+	"one" => "1",
+	"two" => "2",
+	"three" => "3",
+	"four" => "4"
+}
+puts numbers.reject { |word, digit| digit == "3" }
+
+
+
