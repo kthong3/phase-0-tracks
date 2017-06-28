@@ -30,3 +30,23 @@ movies_with_animals = {
   deer: "Bambi",
   fox: "Fox and the Hound"
 }
+
+movies_with_animals = {
+  lion: "lion king",
+  deer: "bambi",
+  fox: "fox and the hound"
+}
+
+movies_with_animals.each do |animal_type, movie|
+  puts "The #{animal_type} is in the #{movie}"
+end
+
+puts "original:"
+p movies_with_animals
+
+modified_movies = movies_with_animals.map do |animal_type, movie|
+  movie.capitalize
+end
+
+puts "hash after .map"
+p modified_movies
