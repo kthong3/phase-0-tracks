@@ -93,7 +93,7 @@ p library[:main_floor][:bookcases]
 
 p library[:first_floor][:lobby]
 
-p library[:first_floor][:media_room][:video_games]
+p library[:first_floor][:media_room][:video_games][:types][3]
 
 p library[:main_floor][:computers]
 
