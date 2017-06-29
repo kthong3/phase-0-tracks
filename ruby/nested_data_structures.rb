@@ -19,6 +19,7 @@ library = {
         audiobook_rows: 2,
         dvd_rows: 6,
         blu_ray_rows: 3,
+        cd_rows: 5,
         video_games: {
           rows: 4,
           types:[
@@ -31,8 +32,7 @@ library = {
             'Xbox_360',
             'XboxOne'
           ]
-        },
-        cd_lanes: 5,
+        }, 
       }
     },
     
@@ -48,11 +48,6 @@ library = {
       },
       
       study_room2: {
-        seats: 4,
-        tables: 1,
-      },
-      
-      study_room3: {
         seats: 6,
         tables: 1,
       },
