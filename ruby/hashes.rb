@@ -34,6 +34,21 @@ puts "How many rooms are you looking to design?"
 num_of_rooms = gets.chomp.to_i
 client_information[:num_of_rooms] = num_of_rooms
 
+# ask if client is open to our suggestions
+valid_input = false
+until valid_input
+  puts "Would you be open to suggestions? (Yes/No)"
+  suggestions = gets.chomp.downcase
+	if suggestions == "yes" || suggestions == "no"
+		valid_input = true
+	else
+	  puts"I did not understand, please type yes or no."
+	end
+end
+
+client_information[:suggestions] = suggestions
+
+
 
 
 
