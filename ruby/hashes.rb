@@ -1,7 +1,7 @@
 # client information
 # enter client's personal information: name, age, # of children,
 # decor theme, number of rooms to design, is client open to 
-# suggestion?, # and is there a time limit?
+# suggestion?, # and is there a strict deadline?
 
 # hash program
 
@@ -42,11 +42,28 @@ until valid_input
 	if suggestions == "yes" || suggestions == "no"
 		valid_input = true
 	else
-	  puts"I did not understand, please type yes or no."
+	  puts "I did not understand, please type yes or no."
 	end
 end
 
 client_information[:suggestions] = suggestions
+
+# ask client if there is a strict deadline
+valid_input = false
+until valid_input
+  puts "Do you have a strict deadline?"
+  strict_deadline = gets.chomp.downcase
+	if strict_deadline == "yes" || strict_deadline == "no"
+		valid_input = true
+	else
+	  puts "I did not understand, please type yes or no."
+	end
+end
+
+client_information[:strict_deadline] = strict_deadline
+
+
+
 
 
 
