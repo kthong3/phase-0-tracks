@@ -13,8 +13,12 @@ client_information = {}
 # ask for client's name
 puts "What is your name?"
 name = gets.chomp
-client_information[name] = name
+client_information[:name] = name
 
 # ask for client's age
-client_information
+puts "What is your age?"
+age = gets.chomp
+client_information[:age] = age
+
+
 
