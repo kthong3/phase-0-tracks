@@ -1,8 +1,7 @@
 # client information
 # enter client's personal information: name, age, # of children,
-# decor theme, color theme preference (max of 3 colors), 
-# number of rooms to design, is client open to suggestion?, 
-# and is there a time limit?
+# decor theme, number of rooms to design, is client open to 
+# suggestion?, # and is there a time limit?
 
 # hash program
 
@@ -29,6 +28,12 @@ client_information[:num_of_children] = num_of_children
 puts "What type of decor theme would you like?"
 decor_theme = gets.chomp
 client_information[:decor_theme] = decor_theme
+
+# ask for number of rooms to design
+puts "How many rooms are you looking to design?"
+num_of_rooms = gets.chomp.to_i
+client_information[:num_of_rooms] = num_of_rooms
+
 
 
 
