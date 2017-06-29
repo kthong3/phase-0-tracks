@@ -82,6 +82,7 @@ else
 	puts "I did not understand, please type yes or none."	
 end
 
+p client_information
 
 
 
