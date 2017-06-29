@@ -62,6 +62,25 @@ end
 
 client_information[:strict_deadline] = strict_deadline
 
+# print the hash after client has answered all questions
+p client_information
+
+# ask client if they need to update any of their answers
+# if client says "none," skip this part.
+puts "Do you need to update any answers to these questions?"
+puts "If there is no need to update, please type none."
+update = gets.chomp.downcase
+if update == "none"
+elsif update == "yes"
+	puts "Which question would you like to update?"
+	question = gets.chomp.to_sym
+	
+	puts "What would you like to update the answer to?"
+	new_answer = gets.chomp
+	client_information[question] = new_answer
+else 
+	puts "I did not understand, please type yes or none."	
+end
 
 
 
