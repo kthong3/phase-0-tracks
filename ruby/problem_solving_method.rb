@@ -1,12 +1,11 @@
 # build a method to search through array to find number
-# and print out which index it is index
+# and print out the array index if it is in the array
 # if it doesn't exist in array, output should be nil
 # arr = [42, 89, 23, 1]
 # p search_array(arr, 1)
 # ==> 3
 # p search_array(arr, 24)
 # ==> nil
-
 
 array = [14, 24, 34, 44, 54]
 
@@ -32,9 +31,6 @@ search(array, 44)
 # example: fib(6)
 # ==> [0,1,1,2,3,5]
 # ==> total is 8
-
-fib_array = Array.new
-
 
 fib_array = Array.new
 
@@ -106,11 +102,11 @@ def bubble_sort(array)
           # end of the array or its proper place
           sorted = true
         end
-		end
-
-		break if not sorted
-    # break after the array has been sorted
     end
+
+    break if not sorted
+    # break after the array has been sorted
+  end
 
   # output the sorted array  
   array
