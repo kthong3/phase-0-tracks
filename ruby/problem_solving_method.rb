@@ -54,7 +54,6 @@ def fibonacci(n)
     # this loop will keep adding up the previous two numbers 
     # in sequence until the number called (n)
   end
-  
   return a
 end
 
@@ -85,7 +84,6 @@ def bubble_sort(array)
 	number = array.length
 
 	loop do
-
 		sorted = false 
     # while this array is NOT sorted
     
@@ -113,4 +111,3 @@ def bubble_sort(array)
 end
 
 bubble_sort(array)
-
