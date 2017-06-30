@@ -35,6 +35,9 @@ search(array, 44)
 
 fib_array = Array.new
 
+
+fib_array = Array.new
+
 def fibonacci(n)
 	# this method performs the sequence
 	# example with fib(6)
@@ -59,9 +62,15 @@ def fibonacci(n)
   return a
 end
 
+# to test out if the method worked, 
+# the number of times will need to reflect 
+# the called number in the method
 6.times do |n|
 	fib_array.push(fibonacci(n))
+	# .push adds tho the array
 	p fib_array
+	# this will continually print out the sequence 
+	# until that number is reached
 end 
 
 fibonacci(6)
