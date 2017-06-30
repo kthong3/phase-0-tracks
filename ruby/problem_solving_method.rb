@@ -1,5 +1,5 @@
 # build a method to search through array to find number
-# and print out which index it is index
+# and print out the array index if it is in the array
 # if it doesn't exist in array, output should be nil
 # arr = [42, 89, 23, 1]
 # p search_array(arr, 1)
@@ -7,21 +7,19 @@
 # p search_array(arr, 24)
 # ==> nil
 
-
 array = [14, 24, 34, 44, 54]
 
 def search(array, n)
 	integer = nil
 	array.length.times do |i|
-		if array[i] == n
-			integer = i
-		end
+			if array[i] == n
+				integer = i
+			end
 	end 
 	p integer
 end
 
 search(array, 44)
-
 
 # initiate array that is empty but intialize with 100
 # creater method that starts w 0 and 1 set to variables and add
@@ -32,9 +30,6 @@ search(array, 44)
 # example: fib(6)
 # ==> [0,1,1,2,3,5]
 # ==> total is 8
-
-fib_array = Array.new
-
 
 fib_array = Array.new
 
@@ -58,7 +53,6 @@ def fibonacci(n)
     # this loop will keep adding up the previous two numbers 
     # in sequence until the number called (n)
   end
-  
   return a
 end
 
@@ -87,9 +81,8 @@ array = [1,4,7,9,4,3,5,7]
 
 def bubble_sort(array)
 	number = array.length
-
+	
 	loop do
-
 		sorted = false 
     # while this array is NOT sorted
     
@@ -98,23 +91,18 @@ def bubble_sort(array)
         # first index. if the 2nd element is greater than the 
         # next element, they will swap indexes
         if array[i] > array[i+1]
-
-          # to switch the two elements in the array index
+					# to switch the two elements in the array index
           array[i], array[i+1] = array[i+1], array[i]
-          
           # loop will continue to swap the elements until reaches the
           # end of the array or its proper place
           sorted = true
         end
-		end
-
+    end
 		break if not sorted
     # break after the array has been sorted
-    end
-
+	end
   # output the sorted array  
   array
 end
 
 bubble_sort(array)
-
