@@ -70,10 +70,10 @@ array = [1,4,7,9,4,3,5,7]
 
 def bubble_sort(array)
   number = array.length
-	
+
   loop do
-		sorted = false 
-		# while this array is NOT sorted
+    sorted = false 
+    # while this array is NOT sorted
 
     (number-1).times do |i|
     # starting from the 2nd index, it will compare to the 
