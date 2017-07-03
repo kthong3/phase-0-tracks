@@ -9,6 +9,30 @@
 # example: mickey mouse ==> mouse mickey ==> muasi mockiy
 # ==> nuati nodliz
 
+# BUSINESS LOGIC
+def change_char(char)
+  vowels = ["a", "e", "i", "o", "u"]
+  constanants = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"]
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  
+  index_of_char = alphabet.index(char)      # check for any non-alphabet characters
+  is_vowel = vowels.index(char)             # check any vowels
+  is_constanant = constanants.index(char)   # check for any constanants
+  
+  if index_of_char == nil                   
+    char
+    # letter is not in alphabet, returns same character                                    
+  elsif is_vowel                            
+    vowels.rotate(1)[vowels.index(char)]
+    # if letter is a vowel, returns next vowel    
+  elsif is_constanant                       
+    constanants.rotate(1)[constanants.index(char)] 
+    # if letter is a constanant, returns next constanant
+  else
+    char
+  end
+end
+
 def alias_manager(name)
   array = name.split(" ").reverse
     # .split will return the name into two indexes in an array
@@ -41,3 +65,7 @@ def alias_manager(name)
   new_alias = new_first + ' ' + new_last
   new_alias
 end
+
+puts "Please enter your first and last name:"
+name = gets.chomp.downcase
+puts alias_manager(name)
