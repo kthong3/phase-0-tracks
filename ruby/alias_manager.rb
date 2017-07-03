@@ -66,6 +66,12 @@ def alias_manager(name)
   new_alias
 end
 
-puts "Please enter your first and last name:"
-name = gets.chomp.downcase
-puts alias_manager(name)
+# USER INTERFACE
+loop do
+  puts "Please enter your first and last name (or type 'quit'):"
+  name = gets.chomp.downcase
+  break if name == 'quit'
+  
+  puts "Your new alias is:"
+  puts alias_manager(name)
+end
