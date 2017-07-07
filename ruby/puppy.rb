@@ -1,5 +1,5 @@
 # SPECIES ------------------------
-# Khao
+# Shih Tzu
 
 # CHARACTERISTICS ----------------
 # Friendly: yes
