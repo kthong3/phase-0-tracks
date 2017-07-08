@@ -4,6 +4,29 @@ class Puppy
     puts "I brought back the #{toy}!"
     toy
   end
+  
+  def speak(num) 
+    puts "Woof " * num 
+  end 
+
+  def roll_over
+    puts "*rolls over*"
+  end
+
+  def dog_years(hum_years)
+    dog_years= hum_years * 7
+    puts "#{dog_years} years old"
+  end
+
+  def high_five
+    puts "*high fives*"
+  end
 
 end
 
+spot = Puppy.new
+spot.fetch("ball")  # ==> "I brought back the ball" 
+spot.speak(4)       # ==> "Woof Woof Woof Woof"
+spot.roll_over      # ==> *rolls over*
+spot.dog_years(10)  # ==> "70 years old"
+spot.high_five      # ==> *high fives*
