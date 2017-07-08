@@ -22,6 +22,14 @@ class Puppy
     puts "*high fives*"
   end
 
+  def initialize
+    puts "initializing new puppy instance.."
+  end
+  # When running the code, the method initialize does run. 
+  # It will run on top of all the other methods in the Puppy class. 
+  # It will not run and will not provide error message.
+  # accidentally misspelling "initialize" has cost many DBC students hours of their lives!
+
 end
 
 spot = Puppy.new
