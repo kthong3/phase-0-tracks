@@ -41,20 +41,16 @@ spot.high_five      # ==> *high fives*
 
 
 class Cat
-
-          def meow 
-            puts "*meows*"
-          end 
+  def meow 
+    puts "*meows*"
+            
+  def licks 
+    puts "*licks*"
           
-          def licks 
-            puts "*licks*"
-          end 
-        
-          def initialize
-            puts "initializing new cat instance.."
-          end
+  def initialize
+    puts "initializing new cat instance.."
+  end
 end 
-
 
 cat_count = 0 
 cat_name = ""
@@ -70,7 +66,10 @@ p cat_array
 
 cat_array.each do |x, cat_new|
   puts x
+  # create new instance
   cat_new = Cat.new 
+  
+  # call cat class methods
   cat_new.meow
   cat_new.licks
 end
