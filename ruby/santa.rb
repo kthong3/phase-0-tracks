@@ -14,6 +14,15 @@ class Santa
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
     @age = 0
   end
+
+  def age
+    @age
+  end
+
+  def celebrate_birthday=(new_age)
+    @age = new_age
+  end
+
 end
 
 santas = []
