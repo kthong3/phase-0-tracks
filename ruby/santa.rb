@@ -19,8 +19,17 @@ end
 santas = []
 genders = ["male", "female", "transgender", "agender", "female", "bigender", "N/A"]
 ethnicities = ["Puerto Rican", "French", "Thai", "Russian", "Black", "White", "Lao"]
+
 genders.length.times do |i|
+  puts "Adding new Santa.."
   santas << Santa.new(genders[i], ethnicities[i])
 end
 
-p santas
+santas.each do |x|
+  puts "Santa is currently age #{x.age}"
+end
+
+santas.each do |x|
+  x.celebrate_birthday = 1
+  puts "Let's celebreat Santa's birthday! Santa is now age #{x.age}"
+end
