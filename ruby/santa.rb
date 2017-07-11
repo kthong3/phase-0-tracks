@@ -1,4 +1,9 @@
 class Santa
+  attr_reader :ethnicity
+  # shortcut for getter methods
+
+  attr_accessor :age
+
   def speak
     puts "Ho, ho, ho! Haaaappy Holidays!"
   end
@@ -15,9 +20,9 @@ class Santa
     @age = 0
   end
 
-  def celebrate_birthday=(new_age)
-    @age = new_age
-  end
+  # def celebrate_birthday=(new_age)
+  #  @age = new_age
+  # end
 
   # setter method to take reindeer's name and move to end of array
   def get_mad_at(reindeer_name)
@@ -32,14 +37,13 @@ class Santa
   end
 
   # getter methods
-  def age
-    @age
-  end
+  # def age
+  # @age
+  # end
   
-  def ethnicity
-    @ethnicity
-  end
-
+  # def ethnicity
+  #  @ethnicity
+  # end
 end
 
 santas = []
@@ -51,9 +55,15 @@ genders.length.times do |i|
   santas << Santa.new(genders[i], ethnicities[i])
 end
 
+santas.each do |x|
+  x.speak
+  x.eat_milk_and_cookies("snickerdoodle")
+end
+
 # check to see if setter methods worked
 santas.each do |x|
-  x.celebrate_birthday = 1
+  x.age = 1
+  # x.celebrate_birthday = 1
   puts "Let's celebrate Santa's birthday! Santa is now age #{x.age}"
 end
 # ==> Let's celebrate Santa's birthday! Santa is now age 1.
