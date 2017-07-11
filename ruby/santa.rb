@@ -58,3 +58,40 @@ puts "Santa's ethnicity is #{santa.ethnicity}."
 puts "Santa is currently age #{santa.age}."
 santa.get_mad_at("Vixen")
 
+
+# commenting out previous santa simulator for release 0, 1, 2, & 3
+# santas = []
+# genders = ["male", "female", "transgender", "agender", "female", "bigender", "N/A"]
+# ethnicities = ["Puerto Rican", "French", "Thai", "Russian", "Black", "White", "Lao"]
+
+# genders.length.times do |x|
+  # puts "Adding new Santa.."
+  # santas << Santa.new(genders[x], ethnicities[x])
+# end
+
+# santas.each do |x|
+  # x.speak
+  # x.eat_milk_and_cookies("snickerdoodle")
+# end
+
+# santas.each do |x|
+  # x.age = 1
+  # puts "Let's celebrate Santa's birthday! Santa is now age #{x.age}."
+# end
+
+# santas.each do |x|
+  # x.get_mad_at("Vixen")
+# end
+# 
+# santas.each do |x|
+  # x.gender = "agender"
+  # puts "Santa is #{x.gender}."
+# end
+
+# santas.each do |x|
+  # puts "Santa is currently age #{x.age}."
+# end
+
+# santas.each do |x|
+  # puts "Santa is #{x.ethnicity}."
+# end
