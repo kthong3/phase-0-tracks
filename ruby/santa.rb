@@ -35,9 +35,11 @@ santa = Santa.new(gender.sample, ethnicity.sample)
 puts santa
 puts "Santa is #{santa.gender}."
 puts "Santa's ethnicity is #{santa.ethnicity}."
+puts "Santa is currently age #{santa.age}."
 
 santa = Santa.new(gender.sample, ethnicity.sample)
 puts santa
 puts "Santa is #{santa.gender}."
 puts "Santa's ethnicity is #{santa.ethnicity}."
+puts "Santa is currently age #{santa.age}."
 
