@@ -2,7 +2,7 @@ class Santa
   attr_reader :ethnicity
   # shortcut for getter methods
 
-  attr_accessor :age
+  attr_accessor :age, :gender
 
   def speak
     puts "Ho, ho, ho! Haaaappy Holidays!"
@@ -31,14 +31,14 @@ class Santa
     p @reindeer_ranking
   end
 
-  def gender_change=(new_gender)
-    @gender = new_gender
-    # p @gender
-  end
+  # def gender_change=(new_gender)
+  #  @gender = new_gender
+  #  p @gender
+  # end
 
   # getter methods
   # def age
-  # @age
+  #  @age
   # end
   
   # def ethnicity
@@ -74,9 +74,11 @@ end
 # ==> @reindeer_ranking=["Rudolph", "Dasher", "Dancer", "Prancer", "Comet", "Cupid", "Donner", "Blitzen", "Vixen"]
 
 santas.each do |x|
-  x.gender_change= "agender"
+  x.gender = "agender"
+  puts "Santa is #{x.gender}."
+  # x.gender_change= "agender"
 end
-# ==> @gender="agender"
+# ==> "Santa is agender."
 
 # check to see if getter methods worked
 santas.each do |x|
