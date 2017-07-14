@@ -27,7 +27,6 @@
 # steps: Iterate through the hash to print out each key/value pair
 # output: Each key/value pair would be printed as strings
 
-
 def list_creator(str)
   list = str.split(" ")
   grocery_list = {}
@@ -77,3 +76,34 @@ update_quantity(grocery, "ice_cream", 1)
 
 print_list(grocery)
 
+# Reflect
+# What did you learn about pseudocode from working on this challenge?
+  # Learned that it is okay to be vague with pseudocoding to express 
+  # idea of what you want the program to do. I assumed before that I 
+  # should be very specific
+
+# What are the tradeoffs of using arrays and hashes for this challenge?
+  # Arrays and hashes express the information differently so it would 
+  # have been much more challenging if we had only worked with arrays.
+  # With hashes, we were able to work with more information since each
+  # item on the list might a quantity
+
+# What does a method return?
+  # Methods return the value of the last expression in the method
+
+# What kind of things can you pass into methods as arguments?
+  # Just about anything since a variable could also be a string, hash,
+  # or array
+
+# How can you pass information between methods?
+  # By declaring a variable outside of the methods and using that
+  # variable as an argument for the methods
+
+# What concepts were solidified in this challenge, and what concepts 
+# are still confusing?
+  # I was able to understand better how methods could work together
+  # without using a class (after learning about classes). I know 
+  # before we did take variables and pass them as arguments in more
+  # than one method but I felt that those methods primarily focusing 
+  # on the loops and iterating through the arrays and hashes that
+  # we were working with.
