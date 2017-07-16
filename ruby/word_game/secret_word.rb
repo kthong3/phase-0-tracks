@@ -36,7 +36,7 @@
 class Game
   attr_accessor :wrong_guess_count, :guessed_words_list
   attr_reader :secret_word
-  
+
   def initialize(secret_word)
     @secret_word = secret_word
     @wrong_guess_count = 0
@@ -44,34 +44,32 @@ class Game
   end
 
   def blank_letters
-    letters = @secret_word.length
-    "_ " * letters
+    "_ " * @secret_word.length
   end
   
-  def already_guessed_words(guessed_word)
+  def already_guessed_words_list(guessed_word)
     if @guessed_words_list.include?(guessed_word) == false
       @guessed_words_list << guessed_word
       false
-    else @guessed_words_list.include?(guessed_word) == true
+    else
       true
     end
   end
-
+  
   def reveal_word(secret_word)
     reveal_letters = @secret_word.split("")
     reveal_word = []
     blank_letters_left = @secret_word.length - @wrong_guess_count
-
+    
     @wrong_guess_count.times do |i|
       reveal_word << reveal_letters[i]
     end
-    
-    puts reveal_word.push("_ " * blank_letters_left).join(" ")
+    reveal_word.push("_ " * blank_letters_left).join(" ")
   end
-
+  
   def win(guessed_word)
     if guessed_word == @secret_word
-      "Good guess!! you win!".upcase 
+      "Good guess, Player 2!! you win!".upcase 
     else
       "You have no more guesses left! 1st player wins!"
     end
@@ -82,33 +80,39 @@ end
 puts "Let's play a guessing game!"
 puts "Player 1, please enter your secret word:"
 secret_word = gets.chomp
+
+# allow user to only enter one word
+while secret_word.include?(" ")
+    puts "Please enter only one word."
+    puts "Player 1, please enter your secret word:"
+    secret_word = gets.chomp
+end
 game = Game.new(secret_word)
 
-puts "Here is the number of letters for the secret word:"
+puts "Player 2, here is the number of letters for the secret word:"
 puts game.blank_letters
+puts " "
 puts "The amount of letters is how many guesses you have."
 
 while game.wrong_guess_count < secret_word.length
-  puts "Please guess the word. Guess number #{game.wrong_guess_count + 1}:"
+  puts "Player 2, please guess the word. Guess number #{game.wrong_guess_count + 1}:"
   guessed_word = gets.chomp
   break if guessed_word == secret_word
       
-  guess = game.already_guessed_words(guessed_word)
-    if guess == true
-      puts "You have already guessed that word. Try again."
-    else guess == false && guessed_word != secret_word
-      puts "Sorry that is not the correct word."
+  guess = game.already_guessed_words_list(guessed_word)
+  if guess == true
+    puts "You have already guessed that word. Try again."
+  else guess == false && guessed_word != secret_word
+    puts "Sorry, that is not the correct word."
       
-      game.wrong_guess_count += 1
-      puts "So far you have guessed: #{game.guessed_words_list.join(" ")}"
-    end
-    
-    puts " "
-    puts "Here is the secret word:"
-    game.reveal_word(secret_word)
-    puts " "
+    game.wrong_guess_count += 1
+    puts "So far you have guessed: #{game.guessed_words_list.join(" ")}"
+  end
+
+  puts " "
+  puts "Here is the secret word:"
+  puts game.reveal_word(secret_word)
+  puts " "
 end
 
 puts game.win(guessed_word)
-
-
