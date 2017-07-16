@@ -27,6 +27,12 @@
 # input: secret word, guessed word
 # steps: Check to see guess word and secret word are the same, if not, after each wrong guess, reveal one letter of the secret word
 # output: A letter of the secret word and blank spaces
+
+# Method to determine winner
+# input: Guessed word
+# steps: User will lose if all guesses are done or wins if guesses the word correctly
+# output: Tell user if they win or lose
+
 class Game
   attr_accessor :wrong_guess_count, :guessed_words_list
   attr_reader :secret_word
@@ -55,7 +61,7 @@ class Game
     reveal_letters = @secret_word.split("")
     reveal_word = []
     blank_letters_left = @secret_word.length - @wrong_guess_count
-    
+
     @wrong_guess_count.times do |i|
       reveal_word << reveal_letters[i]
     end
@@ -63,6 +69,13 @@ class Game
     puts reveal_word.push("_ " * blank_letters_left).join(" ")
   end
 
+  def win(guessed_word)
+    if guessed_word == @secret_word
+      "Good guess!! you win!".upcase 
+    else
+      "You have no more guesses left! 1st player wins!"
+    end
+  end
 end
 
 

@@ -14,4 +14,9 @@ let (:game) {Game.new("cat")}
   it "reveals one letter of the secret word if secret word has not been guessed correctly" do
   	expect(game.reveal_word("cat")).to eq nil
   end
+
+  it "determines user to win if word is guesses word correctly, otherwise user loses" do
+  	expect(game.win("cat")).to eq "GOOD GUESS!! YOU WIN!"
+  end
+
 end
