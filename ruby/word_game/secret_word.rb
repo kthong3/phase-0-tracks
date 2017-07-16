@@ -28,13 +28,13 @@
 # steps: Check to see guess word and secret word are the same, if not, after each wrong guess, reveal one letter of the secret word
 # output: A letter of the secret word and blank spaces
 class Game
-  attr_accessor :wrong_guess_count, :guessed_words
+  attr_accessor :wrong_guess_count, :guessed_words_list
   attr_reader :secret_word
   
   def initialize(secret_word)
     @secret_word = secret_word
     @wrong_guess_count = 0
-    @guessed_words = []
+    @guessed_words_list = []
   end
 
   def blank_letters
@@ -43,24 +43,27 @@ class Game
   end
   
   def already_guessed_words(guessed_word)
-    if @guessed_words.include?(guessed_word) == false
-      @guessed_words << guessed_word
+    if @guessed_words_list.include?(guessed_word) == false
+      @guessed_words_list << guessed_word
       false
-    else @guessed_words.include?(guessed_word) == true
+    else @guessed_words_list.include?(guessed_word) == true
       true
     end
   end
+
+  def reveal_word(secret_word)
+    reveal_letters = @secret_word.split("")
+    reveal_word = []
+    blank_letters_left = @secret_word.length - @wrong_guess_count
+    
+    @wrong_guess_count.times do |i|
+      reveal_word << reveal_letters[i]
+    end
+    
+    puts reveal_word.push("_ " * blank_letters_left).join(" ")
+  end
+
 end
 
-
-# USER INTERFACE
-# puts "Let's play a guessing game!"
-# puts "Player 2, please turn around while Player 1 enters secret word."
-# puts "Player 1, please enter your secret word:"
-# # secret_word = gets.chomp
-# # game = Game.new(secret_word)
-# 
-# puts "Here is the number of letters for the secret word:"
-# # game.blank_letters
 
 
