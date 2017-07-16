@@ -28,36 +28,21 @@ class Santa
 end
 
 santas = []
-1000.times do |x|
+200.times do |x|
   santa = "Santa"
-  santas << santa + rand(1..1000).to_s
-  # create array of random Santas
+  santas << santa + rand(1..200).to_s
 end
 
 gender = ["male", "female", "transgender", "agender", "bigender", "N/A", "gender fluid"]
 ethnicity = ["Puerto Rican", "French", "Thai", "Russian", "Black", "White", "Lao", "Mexican", "N/A", "Indian", "Australian", "German", "Polish"]
 
-santa = santas.sample
-  # randomly selects santa number
-puts santa
-santa = Santa.new(gender.sample, ethnicity.sample)
-  # randomly select from gender and ethnicity array to initialize new Santa
-puts santa
-puts "Santa is #{santa.gender}."
-puts "Santa's ethnicity is #{santa.ethnicity}."
-puts "Santa is currently age #{santa.age}."
-santa.get_mad_at("Dasher")
-
-santa = santas.sample
-puts santa
-santa = Santa.new(gender.sample, ethnicity.sample)
-puts santa
-  # check to see if new santa instance was created
-puts "Santa is #{santa.gender}."
-puts "Santa's ethnicity is #{santa.ethnicity}."
-puts "Santa is currently age #{santa.age}."
-santa.get_mad_at("Vixen")
-
+santas.each do |x|
+  santa = Santa.new(gender.sample, ethnicity.sample)
+  puts "Santa is #{santa.gender}."
+  puts "Santa's ethnicity is #{santa.ethnicity}."
+  puts "Santa is currently age #{santa.age}."
+  santa.get_mad_at("Dasher")
+end
 
 # commenting out previous santa simulator for release 0, 1, 2, & 3
 # santas = []
