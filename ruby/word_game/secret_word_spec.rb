@@ -8,15 +8,15 @@ let (:game) {Game.new("cat")}
   end
 
   it "store guessed words and find if a word has been duplicated" do
-  	expect(game.already_guessed_words("dog")).to eq false
+  	expect(game.already_guessed_words_list("dog")).to eq false
   end
 
   it "reveals one letter of the secret word if secret word has not been guessed correctly" do
-  	expect(game.reveal_word("cat")).to eq nil
+  	expect(game.reveal_word("cat")).to eq "_ _ _ "
   end
 
   it "determines user to win if word is guesses word correctly, otherwise user loses" do
-  	expect(game.win("cat")).to eq "GOOD GUESS!! YOU WIN!"
+  	expect(game.win("cat")).to eq "GOOD GUESS, PLAYER 2!! YOU WIN!"
   end
 
 end
