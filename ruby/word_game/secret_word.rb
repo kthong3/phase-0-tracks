@@ -45,7 +45,7 @@ class Game
 
   def blank_letters
     letters = @secret_word.length
-    p "_ " * letters
+    "_ " * letters
   end
   
   def already_guessed_words(guessed_word)
@@ -78,5 +78,37 @@ class Game
   end
 end
 
+# USER INTERFACE
+puts "Let's play a guessing game!"
+puts "Player 1, please enter your secret word:"
+secret_word = gets.chomp
+game = Game.new(secret_word)
+
+puts "Here is the number of letters for the secret word:"
+puts game.blank_letters
+puts "The amount of letters is how many guesses you have."
+
+while game.wrong_guess_count < secret_word.length
+  puts "Please guess the word. Guess number #{game.wrong_guess_count + 1}:"
+  guessed_word = gets.chomp
+  break if guessed_word == secret_word
+      
+  guess = game.already_guessed_words(guessed_word)
+    if guess == true
+      puts "You have already guessed that word. Try again."
+    else guess == false && guessed_word != secret_word
+      puts "Sorry that is not the correct word."
+      
+      game.wrong_guess_count += 1
+      puts "So far you have guessed: #{game.guessed_words_list.join(" ")}"
+    end
+    
+    puts " "
+    puts "Here is the secret word:"
+    game.reveal_word(secret_word)
+    puts " "
+end
+
+puts game.win(guessed_word)
 
 
