@@ -2,8 +2,8 @@
 # Allow 2 users to play a word guessing game
 # Allow 1st user will enter a secret word. 
 # The number of letters in the secret word will determine the number of guesses for the 2nd user.
-# Allow 2nd user to guess the word. Repeated guesses will not count against the 2nd user.
-# After each incorrect word guess, a new letter of the secret word will appear.
+# Allow 2nd user to guess the word one letter at a time. Repeated guesses will not count against the 2nd user.
+# A new letter will appear if 2nd user has guessed a letter correctly
 # If 2nd user guesses the word correctly before the whole secret word appears, 2nd user wins
 # If 2nd user does not guess correctly before the secret word appears, 2nd user loses
 
@@ -13,25 +13,25 @@
 # steps: determine number of letters of secret word
 # output: A blank space _ will print for each letter that is in the secret word
 
-# Method to store guessed words and find if any have been duplicated
-# input: guessed word
-# steps: Iterate through list of guessed words to see if word is already contained in list of guessed words, if it is not, add guessed word to list
-# output: Return true if duplicate found or false if there is no duplicate
+# Method to store guessed letters and find if any have been duplicated
+# input: guessed letters
+# steps: iterate through list of guessed letters to see if letter is already contained in list, if it is not, add guessed letter to list
+# output: return true if duplicate found or false if there is no duplicate
 
-# Method to show guessed words after each guess
-# input: guessed word
-# steps: Put guessed word in a list to show all guessed words
-# output: Return each guessed word after each guess.
+# Method to show guessed letters after each guess
+# input: guessed letter
+# steps: put guessed letter in a list
+# output: return all guessed letters after each guess.
 
-# Method to reveal one letter of secret word if secret word is not guessed correctly
+# Method to reveal one letter of secret word if letter is guessed correctly
 # input: secret word, guessed word
-# steps: Check to see guess word and secret word are the same, if not, after each wrong guess, reveal one letter of the secret word
-# output: A letter of the secret word and blank spaces
+# steps: check to see guessed letter is in secret word
+# output: return "try again" if not in 
 
 # Method to determine winner
-# input: Guessed word
-# steps: User will lose if all guesses are done or wins if guesses the word correctly
-# output: Tell user if they win or lose
+# input: guessed letter
+# steps: user will lose if all guesses are done or wins if guesses the word correctly
+# output: tell user if they win or lose
 
 class Game
   attr_accessor :wrong_guess_count, :guessed_words_list
