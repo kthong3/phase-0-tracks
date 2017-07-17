@@ -16,8 +16,8 @@
 # Method to store guessed letters and find if any have been duplicated
 # input: guessed letters
 # steps: iterate through list of guessed letters to see if letter is already
-# 	contained in list, if it is not, add guessed letter to list
-# output: return true if duplicate found or false if there is no duplicate
+#   contained in list, if it is not, add guessed letter to list
+# output: Warning to user if letter is repeated
 
 # Method to show guessed letters after each guess
 # input: guessed letter
@@ -58,8 +58,9 @@ class Game
       secret_word_letters.length do |i|
         if secret_word_letters[i] == guessed_letter
           @correct_letters[i] = guessed_letter
-          # try to get correct_letters index to change to guessed letter instead of 
-          # blank letter
+          # try to get correct_letters index to change to guessed letter
+          # instead of blank letter
+          # attempted with insert and delete at built-in methods
         end
       end  
       "Good job! you guessed a correct letter!"
