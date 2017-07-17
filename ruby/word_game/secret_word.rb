@@ -77,43 +77,47 @@ class Game
   end
 end
 
-# # USER INTERFACE
-# puts "Let's play a guessing game!"
-# puts "Player 1, please enter your secret word:"
-# secret_word = gets.chomp
-# 
-# # allow user to only enter one word
-# while secret_word.include?(" ")
-    # puts "Please enter only one word."
-    # puts "Player 1, please enter your secret word:"
-    # secret_word = gets.chomp
-# end
-# game = Game.new(secret_word)
-# 
-# puts "Player 2, here is the number of letters for the secret word:"
-# puts game.blank_letters
-# puts " "
-# puts "The amount of letters is how many guesses you have."
-# 
-# while game.wrong_guess_count < secret_word.length
-  # puts "Player 2, please guess the word. Guess number #{game.wrong_guess_count + 1}:"
-  # guessed_word = gets.chomp
-  # break if guessed_word == secret_word
-#       
-  # guess = game.already_guessed_words_list(guessed_word)
-  # if guess == true
-    # puts "You have already guessed that word. Try again."
-  # else guess == false && guessed_word != secret_word
-    # puts "Sorry, that is not the correct word."
-#       
-    # game.wrong_guess_count += 1
-    # puts "So far you have guessed: #{game.guessed_words_list.join(" ")}"
-  # end
-# 
-  # puts " "
-  # puts "Here is the secret word:"
-  # puts game.reveal_word(secret_word)
-  # puts " "
-# end
-# 
-# puts game.win(guessed_word)
+# USER INTERFACE
+puts "Let's play a guessing game!"
+puts "Player 1, please enter your secret word:"
+secret_word = gets.chomp
+
+# allow user to only enter one word
+while secret_word.include?(" ")
+    puts "Please enter only one word."
+    puts "Player 1, please enter your secret word:"
+    secret_word = gets.chomp
+end
+game = Game.new(secret_word)
+
+puts "Player 2, here is the number of letters for the secret word:"
+puts game.blank_letters
+puts " "
+
+while game.guess_count < secret_word.length
+  puts "Player 2, please enter a letter. Guess number #{game.guess_count + 1}:"
+  guessed_letter = gets.chomp
+    
+  while guessed_letter.length > 1
+    puts "Please type only one letter at a time."
+    puts "Player 2, please enter a letter:"
+    guessed_letter = gets.chomp
+  end
+  
+  break if game.correct_letters.join(" ") == secret_word
+  
+  if game.all_guessed_letters.include?(guessed_letter) == true
+    puts "You have already guessed that letter. Try again."
+  else
+    game.all_guessed_letters << guessed_letter
+    
+    puts game.check_letter(guessed_letter)
+    game.guess_count += 1
+  end  
+  
+  puts "So far you have guessed: #{game.all_guessed_letters.join(" ")}"
+  puts "Word: #{game.correct_letters.join(" ")}"
+  puts " "
+end
+
+puts game.win
