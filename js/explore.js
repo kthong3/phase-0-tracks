@@ -12,11 +12,11 @@ function reverse(str) {
   for (var i = (str.length - 1); i >= 0; i--) {
     rev_string += str[i];
   }
-  console.log(rev_string);
+  return(rev_string);
 }
 
-reverse("hello");
+console.log(reverse("hello"));
 // ==> "olleh"
 
-1 == 1
-// no response?
+console.log(reverse("hello") == "olleh");
+// ==> "true"
