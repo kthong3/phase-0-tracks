@@ -1,7 +1,6 @@
 var horse_colors = ['blue', 'red', 'orange', 'green']
 var names = ['George', 'Adam', 'Thomas', 'Henry']
 
-
 horse_colors.push('pink');
 console.log(horse_colors);
 
@@ -22,26 +21,25 @@ function Car(make, model, age) {
   this.make = make;
   this.model = model;
   this.age = age;
-  this.turn_on = function() {console.log("vroom");};
-
+  this.turn_on = function() {console.log("vroom vroom!");};
   console.log("CAR INITIALIZATION COMPLETE");
 }
 
-console.log("let's build a car..");
+console.log("Let's build a car..");
 var new_car = new Car("Honda", "Civic", 1);
 console.log(new_car);
-console.log("Our car can turn on");
+console.log("Our car can turn on!");
 new_car.turn_on();
 console.log("----");
 
-console.log("let's build a car..");
+console.log("Let's build a car..");
 var another_new_car = new Car("BMW", "325i", 20);
 console.log(another_new_car);
 console.log("Our car can turn on!");
 another_new_car.turn_on();
 console.log("----");
 
-console.log("let's build a car..");
+console.log("Let's build a car..");
 var last_new_car = new Car("Toyota", "Camary", 10);
 console.log(last_new_car);
 console.log("Our car can turn on!");
