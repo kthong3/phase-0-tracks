@@ -103,3 +103,38 @@ end
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes 
+# shown in the state_data file?
+#   The main hash, STATE_DATA, is the container is using states as the
+#   keys in between "" and the state values as the value.
+
+#   The value itself is also a hash but the key is similar to a symbol,
+#   but the colon (:) is at the end instead of in front.
+    
+# What does require_relative do? How is it different from require?
+#   Relative_require gives a mapped out path when the computer may not 
+#   know where the file to include that data. This is usually the 
+#   better route since files are likely to be in the same directory
+#   in our own codebase. 
+
+#   Require includes paths that are already in ruby libraries,
+#   such as Math.
+
+# What are some ways to iterate through a hash?
+#   hash.each do {|key, value| puts "#{key} and #{value}"}
+#   hash.each_key (if you only need to access the key)
+#   hash.each_value (if you only need to access the values)
+
+# When refactoring virus_effects, what stood out to you about the variables,
+# if anything?
+#   Initially we thought the method was already short enough as is, but then we
+#   realized that the method took instance variables as arguments and so those
+#   arguments were removed from all the other instance methods.
+#
+
+# What concept did you most solidify in this challenge?
+#   I have a better understanding of how we should approach refactoring. I was
+#   more concerned about the data before not realizing that I should be more so
+#   looking at how everything is structured and how to avoid repetition as much
+#   as possible.
