@@ -13,3 +13,23 @@
 // output: return the longest phrase (strings)
 
 var phrases = ["long phrase","longest phrase","longer phrase"]
+
+function find_longest_phrase(array) {
+  // count starts at 1 because 2nd index will be checking to see if its length is larger 
+  // than the first index
+  for (var i = 1; i <= array.length; i++) {
+    if (array.length == 1) {
+      // if array only has one index, return that element
+      return array[0]; 
+    } else (array[i].length > array[i + 1].length); {   
+      
+      // switch indexes if one index's length is larger than the other
+      [array[i], array[i + 1]] = [array[i + 1], array[i]];
+      
+      // return last element in array since it will have the longest phrase
+      return array[array.length-1];  
+    }
+  }
+}
+
+console.log(find_longest_phrase(phrases));
