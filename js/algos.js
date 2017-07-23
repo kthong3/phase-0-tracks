@@ -33,3 +33,14 @@ function find_longest_phrase(array) {
 }
 
 console.log(find_longest_phrase(phrases));
+
+
+// Write a function that takes two objects and checks to see if the objects share at
+// least one key-value pair.
+// input: two objects with property and value.
+// steps:
+// Iterate through both objects to read each object's property and value.
+// If both of the 1st object's property and value matches 2nd object's property
+// and value, function will return true.
+// Otherwise the function will return false.
+// output: true or false
