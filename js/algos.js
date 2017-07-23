@@ -44,3 +44,26 @@ console.log(find_longest_phrase(phrases));
 // and value, function will return true.
 // Otherwise the function will return false.
 // output: true or false
+
+var first_person = {name: "Steven", age: 54};
+var second_person = {name: "Tamir", age: 54};
+
+function find_match(first, second) {
+  var first_array = [];
+  var second_array = [];
+  for (var first_key in first) {
+    if( first.hasOwnProperty(first_key) ) {
+      first_array.push([first_key, first[first_key]]);
+    } 
+  }              
+  
+  for (var second_key in second) {
+    if( second.hasOwnProperty(second_key) ) {
+      second_array.push([second_key, second[second_key]]);
+    } 
+  } 
+  // return first_array;
+  return second_array;
+}
+
+console.log(find_match(first_person, second_person));
