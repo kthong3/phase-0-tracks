@@ -91,7 +91,7 @@ console.log(find_match(first_person, second_person));
 // output: Return the array of random words based on number provided
 
 function create_words(length){
-  var random_words = [];
+  var words = [];
   
   // get random number between 1-10 for string length
   function getRandomIntInclusive(min, max) {
@@ -102,7 +102,8 @@ function create_words(length){
   var random_length = getRandomIntInclusive(1,10);
   
   function add_letters(string_length){
-  
+    var random_word = ''
+    
     // get random number to select index
     function getRandomInt_Alpha(min, max) {
       min = Math.ceil(min);
@@ -117,7 +118,18 @@ function create_words(length){
       var letter = alphabet[index];
       return letter;
     }
-    console.log(select_letter(alpha_index)); 
+    
+    for (var i = 0; i < string_length; i++){
+      random_word += select_letter(alpha_index);
+    }
+  
+    return random_word
   }
-  add_letters(random_length);
+  
+  for (var i = 0; i < length; i++){
+      words.push(add_letters(random_length));
+  }
+  console.log(words);
 }
+
+create_words(3);
