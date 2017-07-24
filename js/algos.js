@@ -106,9 +106,8 @@ function create_words(array_length){
     // using index
     // until string length is reached, add new letter to random_word
     var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    var random_index = Math.floor(Math.random() * alphabet.length)
     for (var i = 0; i < string_length; i++){
-      random_word += alphabet.charAt(random_index);
+      random_word += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
     }
   
     return random_word
