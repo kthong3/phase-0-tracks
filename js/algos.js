@@ -79,9 +79,9 @@ console.log(find_match(first_person, second_person));
 
 // Write a function that takes an integer for length, and builds and returns an array
 // of strings of the given length. 
-// Function with an argument of 3 would get an array of 3 random words back
-// (the words don't have to be actual sensical English words. The words should be of
-// randomly varying length, with a minimum of 1 letter and a maximum of 10 letters. 
+// Function with an argument of 3 would get an array of 3 random words back.
+// The words don't have to be actual sensical English words. The words should be of
+//  randomly varying length, with a minimum of 1 letter and a maximum of 10 letters. 
 // input: integer (the number of random words)
 // steps: 
 //    Create an empty array and create string with letters of the alphabet.
@@ -90,6 +90,18 @@ console.log(find_match(first_person, second_person));
 //    Add new string to array to have array length equal to integer.
 // output: Return the array of random words based on number provided
 
-function make_words(length){
+function create_words(length){
+  var random_words = [];
   
+  // get random number between 1-10 for string length
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  getRandomIntInclusive(1,10);
+  
+  console.log(getRandomIntInclusive(1,10));
 }
+
+create_words(3);
