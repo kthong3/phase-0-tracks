@@ -93,9 +93,6 @@ console.log(find_match(first_person, second_person));
 function create_words(array_length){
   var words = [];
   
-  // get random number between 1-10 for string length
-  var random_length = Math.floor((Math.random() * 10) + 1);
-  
   function add_letters(string_length){
     var random_word = ''
     
@@ -103,7 +100,7 @@ function create_words(array_length){
     var alpha_index = Math.floor((Math.random() * 25) + 0);
     
     // get random number to select index of string & select letter from alphabet string 
-    // using index
+    // using index (avoided setting variable since it would select same letter each time)
     // until string length is reached, add new letter to random_word
     var alphabet = 'abcdefghijklmnopqrstuvwxyz';
     for (var i = 0; i < string_length; i++){
@@ -113,9 +110,14 @@ function create_words(array_length){
     return random_word
   }
   
+  // get random number between 1-10 for string length
+  // Math.floor((Math.random() * 10) + 1);
+  // (avoided setting variable to equal a random length, it made each word in array
+  // the same length each time)
+  
   // for array_length provided, create that number of words and add them to array
   for (var i = 0; i < array_length; i++){
-    words.push(add_letters(random_length));
+    words.push(add_letters(Math.floor((Math.random() * 10) + 1)));
   }
   console.log(words);
 }
