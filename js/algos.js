@@ -90,27 +90,17 @@ console.log(find_match(first_person, second_person));
 //    Add new string to array to have array length equal to integer.
 // output: Return the array of random words based on number provided
 
-function create_words(length){
+function create_words(array_length){
   var words = [];
   
   // get random number between 1-10 for string length
-  function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-  var random_length = getRandomIntInclusive(1,10);
+  var random_length = Math.floor((Math.random() * 10) + 1);
   
   function add_letters(string_length){
     var random_word = ''
     
     // get random number to select index
-    function getRandomInt_Alpha(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    var alpha_index = (getRandomInt_Alpha(0,25));
+    var alpha_index = Math.floor((Math.random() * 25) + 0);
     
     // select letter from alphabet string using index
     function select_letter(index){
@@ -119,6 +109,7 @@ function create_words(length){
       return letter;
     }
     
+    // until string length is reached, add new letter to random_word
     for (var i = 0; i < string_length; i++){
       random_word += select_letter(alpha_index);
     }
@@ -126,8 +117,9 @@ function create_words(length){
     return random_word
   }
   
-  for (var i = 0; i < length; i++){
-      words.push(add_letters(random_length));
+  // for array_length provided, create that number of words and add them to array
+  for (var i = 0; i < array_length; i++){
+    words.push(add_letters(random_length));
   }
   console.log(words);
 }
