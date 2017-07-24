@@ -102,16 +102,13 @@ function create_words(array_length){
     // get random number to select index
     var alpha_index = Math.floor((Math.random() * 25) + 0);
     
-    // select letter from alphabet string using index
-    function select_letter(index){
-      var alphabet = 'abcdefghijklmnopqrstuvwxyz';
-      var letter = alphabet[index];
-      return letter;
-    }
-    
+    // get random number to select index of string & select letter from alphabet string 
+    // using index
     // until string length is reached, add new letter to random_word
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    var random_index = Math.floor(Math.random() * alphabet.length)
     for (var i = 0; i < string_length; i++){
-      random_word += select_letter(alpha_index);
+      random_word += alphabet.charAt(random_index);
     }
   
     return random_word
@@ -125,3 +122,4 @@ function create_words(array_length){
 }
 
 create_words(3);
+create_words(5);
