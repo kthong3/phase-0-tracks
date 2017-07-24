@@ -99,9 +99,25 @@ function create_words(length){
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-  getRandomIntInclusive(1,10);
+  var random_length = getRandomIntInclusive(1,10);
   
-  console.log(getRandomIntInclusive(1,10));
+  function add_letters(string_length){
+  
+    // get random number to select index
+    function getRandomInt_Alpha(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    var alpha_index = (getRandomInt_Alpha(0,25));
+    
+    // select letter from alphabet string using index
+    function select_letter(index){
+      var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+      var letter = alphabet[index];
+      return letter;
+    }
+    console.log(select_letter(alpha_index)); 
+  }
+  add_letters(random_length);
 }
-
-create_words(3);
