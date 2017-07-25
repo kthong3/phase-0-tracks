@@ -119,8 +119,15 @@ function create_words(array_length){
   for (var i = 0; i < array_length; i++){
     words.push(add_letters(Math.floor((Math.random() * 10) + 1)));
   }
-  console.log(words);
+  return words;
 }
 
 create_words(3);
 create_words(5);
+
+// Add driver code that does the following 10 times: generates an array, prints the
+// array, feeds the array to your "longest word" function, and prints the result.
+for (var i = 0; i < 10; i++){
+  array = create_words(3);
+  console.log(find_longest_phrase(array));
+}
