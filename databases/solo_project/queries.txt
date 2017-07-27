@@ -41,4 +41,33 @@ sqlite> SELECT * FROM patrons;
 5|Theon|Greyjoy|2
 
 Different types of JOINs
+(INNER) JOIN only shows the set of records that match in both tables.
+sqlite> SELECT patrons.name, scones.scone FROM patrons JOIN scones ON patrons.scone_id = scones.id;
+Daenarys|blueberry
+Sansa|orange cranberry
+Tyrion|blueberry
+Theon|orange cranberry
 
+LEFT OUTER JOIN only shows the set of records from the first table with the matching records (where available) in second table. If there it not a match, the right side would contain null.
+sqlite> SELECT * FROM patrons LEFT OUTER JOIN scones ON patrons.scone_id = scone
+s.id;
+1|Daenarys|Targayen|1|1|blueberry
+3|Sansa|Stark|2|2|orange cranberry
+4|Tyrion|Lannister|1|1|blueberry
+5|Theon|Greyjoy|2|2|orange cranberry
+
+*** Right and Outer JOINs were not supported. Output not available for the following JOINs.
+FULL OUTER JOIN shows the set of all records in both tables, with matching records from both sides where available. If there is not a match, the missing side would contain null.
+SELECT * FROM patrons
+LEFT OUTER JOIN scones
+ON patrons.scone_id = scones.id
+
+You can also use FULL OUTER JOIN to show the set of records that are unique to each table and exclude the records we don't want from both sides using a where clause. 
+SELECT * FROM patrons
+LEFT OUTER JOIN scones
+ON patrons.scone_id = scones.id
+WHERE scones.id IS null;
+
+RIGHT OUTER JOIN shows only the set of records from the second table with matching records (where available) in first table.
+SELECT * FROM patrons RIGHT OUTER JOIN scones ON patrons.scone_id = scone
+s.id;
