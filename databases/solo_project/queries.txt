@@ -7,16 +7,38 @@ SELECT * FROM patrons;
 5|Theon|Greyjoy|3
 
 Update an item that meets some condition (you can choose a condition that makes sense).
-
+sqlite> UPDATE patrons SET scone_id=2 WHERE name="Theon";
+sqlite> SELECT * FROM patrons;
+1|Daenarys|Targayen|1
+2|Bran|Stark|3
+3|Sansa|Stark|2
+4|Tyrion|Lannister|1
+5|Theon|Greyjoy|2
 
 Display the information in both tables using one query.
-
+sqlite> SELECT * FROM patrons, scones WHERE patrons.scone_id = scones.id;
+1|Daenarys|Targayen|1|1|blueberry
+2|Bran|Stark|3|3|pumpkin
+3|Sansa|Stark|2|2|orange cranberry
+4|Tyrion|Lannister|1|1|blueberry
+5|Theon|Greyjoy|2|2|orange cranberry
 
 Display a narrower selection of columns (fewer columns than all of them, in other words) from both 
-
 tables using one query.
-
+sqlite> SELECT patrons.name, scones.scone FROM patrons, scones WHERE patrons.scone_id = scones.id;
+Daenarys|blueberry
+Bran|pumpkin
+Sansa|orange cranberry
+Tyrion|blueberry
+Theon|orange cranberry
 
 Delete an item that meets some condition (you can choose a condition that makes sense).
+sqlite> DELETE FROM patrons WHERE name="Bran";
+sqlite> SELECT * FROM patrons;
+1|Daenarys|Targayen|1
+3|Sansa|Stark|2
+4|Tyrion|Lannister|1
+5|Theon|Greyjoy|2
 
+Different types of JOINs
 
