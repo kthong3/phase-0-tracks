@@ -14,7 +14,7 @@ Mandy|Kaling|Amir's Towing|1|horrible cheese
 Angela|Jolie|The Beagle Nightclub|3|ok cheese
 Steven|Wonder|Lotus Yoga|4|great cheese
 
-How do you view the data of all three tables for just one particular table:
+How do you view the data of all three tables for just one particular business?:
 sqlite> SELECT * FROM reviews, businesses, users WHERE reviews.businesses_id = businesses.id AND reviews.users_id = users.id AND businesses.name="Grundy Hollow Wedding Chapel";
 1|5|wonderful cheese|1|1|1|Grundy Hollow Wedding Chapel|1|Bradford|Pitt
 sqlite> 
