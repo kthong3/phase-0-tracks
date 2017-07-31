@@ -63,15 +63,16 @@ def start_list(db)
       when "delete"
         delete_task(db)
       when "view"
-        puts "Viewing all  tasks."
+        view_tasklist(db)
       else
       puts "Sorry, I didn't get that. Please type add, update, delete, or view."
-      puts "Otherwise, please type 'q' if you are done with this task list."
+      puts "Please type 'q' if you are done with this task list."
     end
   end
   puts "Goodbye!"
 end
 
+# allow user to add a task to the task list
 def add(db)
   puts "Type the task you would like to add:"
   task_input = gets.chomp
@@ -96,6 +97,7 @@ def add(db)
   puts "Task added."
 end
 
+# allow user to update a task if there is an existing task in the task list
 def update_task(db)
   puts "What task would you like to update?"
   task_to_update = gets.chomp
@@ -136,6 +138,7 @@ def update_task(db)
   end
 end
 
+# check if the input exists in the task list
 def check_database (db, task_to_update)
   check_tasks = db.execute("SELECT * FROM tasks")
   check_tasks.each do |task|
@@ -146,6 +149,7 @@ def check_database (db, task_to_update)
   false
 end
 
+# allow user to delete a task from the task list (if task exists)
 def delete_task(db)
   puts "What task would you like to delete?"
   task_to_delete = gets.chomp
@@ -158,15 +162,13 @@ def delete_task(db)
   puts "Task deleted."
 end
 
+# allow user to view what is in the task list.
+def view_tasklist(db)
+  tasks = db.execute("SELECT * FROM tasks, priority, status WHERE tasks.priority_id = priority.id AND tasks.status_id = status.id")
+  tasks.each do |task|
+  puts "task: #{task['task']}, priority: #{task['priority_id']}, status: #{task['status_id']}"
+  end
+end
 
-# def view_tasklist(db)
-#   tasks = db.execute("SELECT * FROM tasks, priority, status WHERE priority_id = priority.id AND status_id = status.id")
-#   tasks.each do |task|
-#   puts "Task: #{task['task']}, priority: #{task['priority_id']}, status: #{task['status_id']}"
-#   end
-# end
-
-
+# driver code
 start_list(db)
-# view_tasklist(db)
-
