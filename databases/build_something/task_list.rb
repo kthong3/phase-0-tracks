@@ -47,7 +47,7 @@ db.execute("INSERT INTO status (status) VALUES ('to-do')")
 db.execute("INSERT INTO status (status) VALUES ('in-progress')")
 db.execute("INSERT INTO status (status) VALUES ('completed')")
 
-def start(db)
+def start_list(db)
   puts "Hello, I am your Tasklist!"
   input = true
   while input
@@ -59,13 +59,13 @@ def start(db)
       when "add"
         add(db)
       when "update"
-        puts "What would you like to update: priority or status?"
+        update_task(db)
       when "delete"
         puts "Task deleted."
       when "view"
         puts "Viewing all  tasks."
       else
-      puts "Sorry, I didn't get that. Please type a valid option: add, update, delete, or view."
+      puts "Sorry, I didn't get that. Please type add, update, delete, or view."
       puts "Otherwise, please type 'q' if you are done with this task list."
     end
   end
@@ -96,4 +96,62 @@ def add(db)
   puts "Task added."
 end
 
-start(db)
+def update_task(db)
+  puts "What task would you like to update?"
+  task_to_update = gets.chomp
+  while check_database(db, task_to_update) == true
+    puts "Sorry, that task is not on your task list."
+    puts "Please type the task that you would like to update."
+    task_to_update = gets.chomp
+  end
+
+  puts "Would you like to update the priority or status?"
+  update_input = gets.chomp.downcase
+  while update_input != "priority" && update_input != "status"
+      puts "Sorry, I didn't get that. Please type priority or status."
+      update_input = gets.chomp
+  end
+
+  if update_input == "priority"
+    puts "What would you like to update the priority to? 1. high, 2. medium, or 3. low."
+      priority_update = gets.chomp
+      while priority_update != "1" && priority_update != "2" && priority_update != "3"
+        puts "Please type the number to update the priority: 1 (high), 2 (medium),  or 3 (low)."
+        priority_update = gets.chomp
+      end
+    priority_update = priority_update.to_i
+    db.execute("UPDATE tasks SET priority_id=#{priority_update} WHERE task='#{task_to_update}'")
+  else
+    update_input == "status"
+    puts "What would you like to update the status to? 1. to-do, 2. in-progress, 3. completed."
+      status_update = gets.chomp
+      while status_update != "1" && status_update != "2" && status_update != "3"
+        puts "Please type the number to update the status: 1 (to-do), 2 (in-progress),  or 3 (completed)."
+        status_update = gets.chomp
+      end
+    status_update = status_update.to_i
+    db.execute("UPDATE tasks SET status_id=#{status_update} WHERE task='#{task_to_update}'")
+  end
+end
+
+def check_database (db, task_to_update)
+  check_tasks = db.execute("SELECT * FROM tasks")
+  check_tasks.each do |task|
+    if task['task'] == task_to_update
+     return true
+    end
+  end
+  false
+end
+
+# def view_tasklist(db)
+#   tasks = db.execute("SELECT * FROM tasks, priority, status WHERE priority_id = priority.id AND status_id = status.id")
+#   tasks.each do |task|
+#   puts "Task: #{task['task']}, priority: #{task['priority_id']}, status: #{task['status_id']}"
+#   end
+# end
+
+
+start_list(db)
+# view_tasklist(db)
+
