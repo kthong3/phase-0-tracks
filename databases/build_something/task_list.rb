@@ -99,17 +99,17 @@ end
 def update_task(db)
   puts "What task would you like to update?"
   task_to_update = gets.chomp
-  while check_database(db, task_to_update) == true
+  while check_database(db, task_to_update) == false
     puts "Sorry, that task is not on your task list."
     puts "Please type the task that you would like to update."
-    task_to_update = gets.chomp
+    task_to_update = gets.chomp.downcase
   end
 
   puts "Would you like to update the priority or status?"
   update_input = gets.chomp.downcase
   while update_input != "priority" && update_input != "status"
       puts "Sorry, I didn't get that. Please type priority or status."
-      update_input = gets.chomp
+      update_input = gets.chomp.downcase
   end
 
   if update_input == "priority"
@@ -121,6 +121,7 @@ def update_task(db)
       end
     priority_update = priority_update.to_i
     db.execute("UPDATE tasks SET priority_id=#{priority_update} WHERE task='#{task_to_update}'")
+    puts "Priority updated."
   else
     update_input == "status"
     puts "What would you like to update the status to? 1. to-do, 2. in-progress, 3. completed."
@@ -131,6 +132,7 @@ def update_task(db)
       end
     status_update = status_update.to_i
     db.execute("UPDATE tasks SET status_id=#{status_update} WHERE task='#{task_to_update}'")
+    puts "Status updated."
   end
 end
 
