@@ -21,14 +21,14 @@ SQL
 create_priority_table = <<-SQL
   CREATE TABLE IF NOT EXISTS priority (
     id INTEGER PRIMARY KEY,
-    priority VARCHAR(255)
+    priority VARCHAR(255) UNIQUE
   )
 SQL
 
 create_status_table = <<-SQL
   CREATE TABLE IF NOT EXISTS status (
     id INTEGER PRIMARY KEY,
-    status VARCHAR(255)
+    status VARCHAR(255) UNIQUE
   )
 SQL
 
@@ -38,17 +38,17 @@ db.execute(create_priority_table)
 db.execute(create_status_table)
 
 # add priorities to priority list
-db.execute("INSERT INTO priority (priority) VALUES ('high')")
-db.execute("INSERT INTO priority (priority) VALUES ('medium')")
-db.execute("INSERT INTO priority (priority) VALUES ('low')")
+db.execute("INSERT OR IGNORE INTO priority (priority) VALUES ('high')")
+db.execute("INSERT OR IGNORE INTO priority (priority) VALUES ('medium')")
+db.execute("INSERT OR IGNORE INTO priority (priority) VALUES ('low')")
 
 # add statuses to status list
-db.execute("INSERT INTO status (status) VALUES ('to-do')")
-db.execute("INSERT INTO status (status) VALUES ('in-progress')")
-db.execute("INSERT INTO status (status) VALUES ('completed')")
+db.execute("INSERT OR IGNORE INTO status (status) VALUES ('to-do')")
+db.execute("INSERT OR IGNORE INTO status (status) VALUES ('in-progress')")
+db.execute("INSERT OR IGNORE INTO status (status) VALUES ('completed')")
 
 def start_list(db)
-  puts "Hello, I am your Tasklist!"
+  puts "Hello, I am your Tasklist!\n"
   input = true
   while input
     puts "What would you like to do? Add, Update, Delete, or View."
@@ -66,25 +66,28 @@ def start_list(db)
         view_tasklist(db)
       else
       puts "Sorry, I didn't get that. Please type add, update, delete, or view."
-      puts "Please type 'q' if you are done with this task list."
+      puts "Please type 'q' if you are done."
     end
   end
-  puts "Goodbye!"
+  puts "Here is your Task List:"
+  tasklist = db.execute("SELECT tasks.id, tasks.task, priority.priority, status.status FROM tasks, priority, status WHERE tasks.priority_id = priority.id AND tasks.status_id = status.id")
+  tasklist.each do |task|
+  puts "#{task['id']} #{task['task']}: priority: #{task['priority']}, status: #{task['status']}"
+  end
+  puts "\nGoodbye!"
 end
 
 # allow user to add a task to the task list
 def add(db)
   puts "Type the task you would like to add:"
   task_input = gets.chomp
-  
   puts "Type the priority number of this task: 1. high, 2. medium, or 3. low."
   priority_input = gets.chomp
     while priority_input != "1" && priority_input != "2" && priority_input != "3"
       puts "Please type the number for the priority: 1 (high), 2 (medium),  or 3 (low)."
       priority_input = gets.chomp
     end
-   priority_input = priority_input.to_i 
-  
+  priority_input = priority_input.to_i 
   puts "Type the status number of this task: 1. to-do, 2. in-progress, 3. completed."
   status_input = gets.chomp
     while status_input != "1" && status_input != "2" && status_input != "3"
@@ -92,7 +95,6 @@ def add(db)
       status_input = gets.chomp
     end
   status_input = status_input.to_i
-
   db.execute("INSERT INTO tasks (task, priority_id, status_id) VALUES (?, ?, ?)", [task_input, priority_input, status_input])
   puts "Task added."
 end
@@ -106,7 +108,6 @@ def update_task(db)
     puts "Please type the task that you would like to update."
     task_to_update = gets.chomp.downcase
   end
-
   puts "Would you like to update the priority or status?"
   update_input = gets.chomp.downcase
   while update_input != "priority" && update_input != "status"
@@ -164,9 +165,9 @@ end
 
 # allow user to view what is in the task list.
 def view_tasklist(db)
-  tasks = db.execute("SELECT * FROM tasks, priority, status WHERE tasks.priority_id = priority.id AND tasks.status_id = status.id")
+  tasks = db.execute("SELECT tasks.id, tasks.task, priority.priority, status.status FROM tasks, priority, status WHERE tasks.priority_id = priority.id AND tasks.status_id = status.id")
   tasks.each do |task|
-  puts "task: #{task['task']}, priority: #{task['priority_id']}, status: #{task['status_id']}"
+  puts "#{task['id']} #{task['task']}: priority: #{task['priority']}, status: #{task['status']}"
   end
 end
 
