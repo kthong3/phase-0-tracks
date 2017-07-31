@@ -61,7 +61,7 @@ def start_list(db)
       when "update"
         update_task(db)
       when "delete"
-        puts "Task deleted."
+        delete_task(db)
       when "view"
         puts "Viewing all  tasks."
       else
@@ -145,6 +145,19 @@ def check_database (db, task_to_update)
   end
   false
 end
+
+def delete_task(db)
+  puts "What task would you like to delete?"
+  task_to_delete = gets.chomp
+  while check_database(db, task_to_delete) == false
+    puts "Sorry, that task is not on your task list."
+    puts "Please type the task that you would like to delete."
+    task_to_delete = gets.chomp.downcase
+  end
+  db.execute("DELETE FROM tasks WHERE task='#{task_to_delete}'")
+  puts "Task deleted."
+end
+
 
 # def view_tasklist(db)
 #   tasks = db.execute("SELECT * FROM tasks, priority, status WHERE priority_id = priority.id AND status_id = status.id")
