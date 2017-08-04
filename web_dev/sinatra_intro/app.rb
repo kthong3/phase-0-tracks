@@ -1,5 +1,6 @@
 # require gems
 require 'sinatra'
+require "sinatra/reloader" if development?
 require 'sqlite3'
 
 db = SQLite3::Database.new("students.db")
@@ -43,4 +44,21 @@ end
 get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
+end
+
+# write a /contact route that displays address
+get '/contact' do
+  "12345 Mulberry Lane"
+end
+
+# write a /great_job route that can take a person's name as a query parameter
+# and say "Good job, [person's name]!" If the query parameter is not present,
+# the route simply says "Good job!"
+get '/great_job' do
+  person = params[:person]
+  if person
+    "Good job, #{person}!"
+  else
+    "Good job!" 
+  end
 end
