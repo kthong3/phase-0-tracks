@@ -25,3 +25,15 @@ post '/students' do
 end
 
 # add static resources
+
+# release 0: Add an ERB template to the application
+# release 1: Create an HTTP route that will respond with the 
+# template you created in the previous release
+get '/campuses/new' do
+  erb :new
+end
+
+# release 2: build a form and allow the user to add or manipulate 
+# data in some way using a form.
+	# add a campuses table to the database and allow the user to add
+	# additional cities to accomplish DBC world domination
