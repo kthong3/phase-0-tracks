@@ -35,5 +35,17 @@ end
 
 # release 2: build a form and allow the user to add or manipulate 
 # data in some way using a form.
-	# add a campuses table to the database and allow the user to add
-	# additional cities to accomplish DBC world domination
+  # add a campuses table to the database and allow the user to add
+  # additional cities to accomplish DBC world domination
+create_campuses_table = <<-SQL
+  CREATE TABLE IF NOT EXISTS campuses (
+    id INTEGER PRIMARY KEY,
+    city_name VARCHAR(255)
+  )
+SQL
+
+post '/campuses' do
+  db.execute(create_campuses_table)
+  db.execute("INSERT INTO campuses (city_name) VALUES (?)", params['city_name'])
+  redirect '/campuses/new'
+end
