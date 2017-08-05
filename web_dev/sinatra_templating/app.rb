@@ -25,3 +25,9 @@ post '/students' do
 end
 
 # add static resources
+
+# release 0: Add an ERB template to the application.
+# release 1: Create an HTTP route that will respond with the template.
+get '/campuses/new' do
+  erb :new
+end
