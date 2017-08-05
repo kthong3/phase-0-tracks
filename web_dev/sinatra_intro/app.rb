@@ -66,11 +66,32 @@ end
 # write a GET route that uses route parameters to add two numbers and respond
 # with the result.
 get '/:number_1/plus/:number_2' do
-  number_1 = params[:number_1]
-  number_2 = params[:number_2]
-  number_1 = number_1.to_i
-  number_2 = number_2.to_i
+  number_1 = params[:number_1].to_i
+  number_2 = params[:number_2].to_i
   total = number_1 + number_2
   total = total.to_s
   "The total is #{total}!"
+end
+
+# Make a route that allows the user to search the database in some way, maybe 
+# for students who have a certain first name, or some other attribute. 
+# If you like, you can simply modify the home page to take a query parameter, 
+# and filter the students displayed if a query parameter is present.
+# FIND STUDENTS AT CERTAIN LOCATIONS
+get '/find' do
+  student_location = params[:campus]
+
+  if student_location
+    find_campus = db.execute("SELECT * FROM students WHERE campus=?", student_location)
+    response_location = ""
+    find_campus.each do |student|
+      response_location << "ID: #{student['id']}<br>"
+      response_location << "Name: #{student['name']}<br>"
+      response_location << "Age: #{student['age']}<br>"
+      response_location << "Campus: #{student['campus']}<br><br>"
+    end
+    response_location
+  else
+    "Sorry, I did not understand what you are looking for."
+  end
 end
