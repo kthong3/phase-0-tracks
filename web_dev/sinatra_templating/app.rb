@@ -25,3 +25,22 @@ post '/students' do
 end
 
 # add static resources
+
+# release 0: Add an ERB template to the application.
+# release 1: Create an HTTP route that will respond with the template.
+get '/campuses/new' do
+  erb :new
+end
+
+create_campuses_table = <<-SQL
+  CREATE TABLE IF NOT EXISTS campuses (
+    id INTEGER PRIMARY KEY,
+    city_name VARCHAR(255)
+  )
+SQL
+
+post '/campuses' do
+  db.execute(create_campuses_table)
+  db.execute("INSERT INTO campuses (city_name) VALUES (?)", [params['city_name']])
+  redirect '/campuses/new'
+end
