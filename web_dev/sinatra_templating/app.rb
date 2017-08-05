@@ -31,3 +31,16 @@ end
 get '/campuses/new' do
   erb :new
 end
+
+create_campuses_table = <<-SQL
+  CREATE TABLE IF NOT EXISTS campuses (
+    id INTEGER PRIMARY KEY,
+    city_name VARCHAR(255)
+  )
+SQL
+
+post '/campuses' do
+  db.execute(create_campuses_table)
+  db.execute("INSERT INTO campuses (city_name) VALUES (?)", [params['city_name']])
+  redirect '/campuses/new'
+end
